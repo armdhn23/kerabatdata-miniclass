@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1605199149379.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "4469B091",
+    "lastKnownWriteTime" : 1605229611,
+    "last_content_update" : 1605229612002,
+    "path" : "~/Documents/Project/app1/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "107,4",
+        "scrollLine" : "104",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

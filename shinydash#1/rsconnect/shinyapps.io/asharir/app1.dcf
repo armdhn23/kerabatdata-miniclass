@@ -1,0 +1,13 @@
+name: app1
+title: app1
+username:
+account: asharir
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3219291
+bundleId: 3863163
+url: https://asharir.shinyapps.io/app1/
+when: 1605452776.96371
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|data_on_french_states.csv|provinsi.csv

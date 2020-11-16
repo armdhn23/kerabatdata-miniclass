@@ -1,0 +1,9 @@
+{
+    "path" : "~/Documents/Project/app1",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
