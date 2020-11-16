@@ -2,7 +2,9 @@
 
 Shinyapp#1 
 
-asharir.shinyapps.io/app1/
+link app1
+
+https://asharir.shinyapps.io/app1/
 
 Screenshoot
 
