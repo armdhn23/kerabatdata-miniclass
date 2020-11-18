@@ -1,0 +1,18 @@
+definisikan variabel berikut
+
+money <- 50000
+banana_price <- 5000
+amount_banana <- 6
+
+
+
+Buat variabel total_price yang merupakan perkalian 
+banana_price dengan amount_banana
+
+Jika money mencukupi, cetak 'You bought 6 bananas'
+dengan menggunakan kombinasi fungsi print dengan paste lalu kurangkan money
+dengan total_price
+
+sebaliknya jika money tidak mencukupi, cetak 'Your money is not enough'
+
+
