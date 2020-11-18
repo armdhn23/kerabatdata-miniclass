@@ -15,4 +15,6 @@ dengan total_price
 
 sebaliknya jika money tidak mencukupi, cetak 'Your money is not enough'
 
+Cetak sisa uang
+
 
