@@ -1,5 +1,5 @@
 ---
-title: "3-Manipulasi Data"
+title: "3-Manipulasi Bentuk Data"
 author: "Ashari Ramadhan"
 keywords: "manipulasi data, tidyr, dplyr"
 date: "11/19/2020"
@@ -27,7 +27,7 @@ install.packages('tidyverse') \#menginstall packages tidyverse
 library(dplyr)
 ```
 
-#### Buat data seperti di bawah dengan kode R dan beri nama data_latihan
+### Buat data seperti di bawah dengan kode R dan beri nama data_latihan
 
 ```{r data_latihan}
 data_latihan <- data.frame(
@@ -44,19 +44,19 @@ data_latihan <- data.frame(
 
 ```
 
-#### Melihat dimensi data
+### Melihat dimensi data
 
 ```{r dimensi data}
 dim(data_latihan)
 ```
 
-#### Melihat 6 data pertama
+### Melihat 6 data pertama
 
 ```{r head_data}
 head(data_latihan)
 ```
 
-#### Melihat strukur data
+### Melihat strukur data
 
 ```{r str_data}
 str(data_latihan)
@@ -64,7 +64,7 @@ str(data_latihan)
 
 Dari output di atas dapat diperoleh beberapa informasi, seperti type object data_latihan yaitu data.frame, berisi 9 observasi dan 7 variabel, yaitu merk, nama_barang, harga dan seterusnya.
 
-#### Memilih variabel data dengan select
+### Memilih variabel data dengan select
 
 ```{r select}
 data_2016 <- data_latihan %>%
@@ -189,7 +189,7 @@ memisahkan kolom
 
 menggabungkan kolom
 
-#### Melihat ulang data
+### Melihat ulang data
 
 ```{r head_mutate}
 head(mutate_data)
