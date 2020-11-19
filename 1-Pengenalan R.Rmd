@@ -19,9 +19,13 @@ R merupakan bahasa yang digunakan dalam komputasi statistik.
 R bisa digunakan untuk membuat model linier dan nonlinier, hipotesis test, visualisasi, time series, klasifikasi, web-apps, pemetaan dan lain-lain.
 
 Kenapa harus pakai R?
+
 1. Gratis / Open Source
+
 2. Packages / Library yang banyak
+
 3. Digunakan oleh industri
+
 4. Komunitas Besar
 
 ## Case sensitif
@@ -115,6 +119,7 @@ numbers
 Variabel tempat untuk menyimpan sebuah nilai
 
 ![Konsep Variabel](img/1-2-variabel.png){width=40%}
+
 Membuat variabel kita memerlukan operator assigmnent
 
 ```{r variabel}
@@ -199,8 +204,10 @@ print(foods)
 Percabangan adalah fitur dari bahasa pemrograman yang melakukan perhitungan atau tindakan yang berbeda tergantung pada apakah kondisi boolean yang ditentukan pemrogram mengevaluasi benar atau salah.
 
 Kondisi boolean:
-+ TRUE, kondisi benar
-+ FALSE, kondisi salah
+
+* TRUE, kondisi benar
+
+* FALSE, kondisi salah
 
 ![Operator Logika](img/1-3-operator-logika.png)
 ```{r logika}
@@ -265,9 +272,13 @@ if(nilai > 70){
 ```
 ## Latihan
 Buat program percabangan dengan kondisi
+
 + jika nilai > 80 cetak "A"
+
 + jika 70 < nilai <= 80 cetak "B" 
+
 + jika nilai 50 < nilai <=70 cetak "C"
+
 + Selain itu cetak "D"
 
 # 5. Perulangan
