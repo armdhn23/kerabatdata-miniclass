@@ -1,34 +1,35 @@
-id,jumlah_kursi_anggota,jumlah_kursi_perempuan,presentase,provinsi_id
-1,45,1,2.22%,92
-2,57,6,10.53%,91
-3,45,4,8.89%,82
-4,45,12,26.67%,81
-5,45,8,17.78%,76
-6,45,12,26.67%,75
-7,45,8,17.78%,74
-8,85,16,18.82%,73
-9,45,7,15.56%,72
-10,45,14,31.11%,71
-11,55,6,10.91%,64
-12,55,7,12.73%,63
-13,45,10,22.22%,62
-14,65,7,10.77%,61
-15,65,6,9.23%,53
-16,65,5,7.69%,52
-17,55,5,9.09%,51
-18,85,16,18.82%,36
-19,100,13,13.00%,35
-20,55,6,10.91%,34
-21,100,23,23.00%,33
-22,100,22,22.00%,32
-23,106,19,17.92%,31
-24,45,6,13.33%,21
-25,45,5,11.11%,19
-26,85,14,16.47%,18
-27,45,8,17.78%,17
-28,75,13,17.33%,16
-29,55,7,12.73%,15
-30,65,18,27.69%,14
-31,65,6,9.23%,13
-32,100,13,13.00%,12
-33,81,12,14.81%,11
+id,jumlah_kursi_anggota,jumlah_kursi_perempuan,presentase,provinsi_id,nama_provinsi,Pulau
+1,45,1,2.22%,92,Papua Barat,Papua
+2,57,6,10.53%,91,Papua,Papua
+3,45,4,8.89%,82,Maluku Utara,Maluku & NTT
+4,45,12,26.67%,81,Maluku,Maluku & NTT
+5,45,8,17.78%,76,Sulawesi Barat,Sulawesi
+6,45,12,26.67%,75,Gorontalo,Sulawesi
+7,45,8,17.78%,74,Sulawesi Tenggara,Sulawesi
+8,85,16,18.82%,73,Sulawesi Selatan,Sulawesi
+9,45,7,15.56%,72,Sulawesi Tengah,Sulawesi
+10,45,14,31.11%,71,Sulawesi Utara,Sulawesi
+11,0,0,0,65,Kalimantan Utara,Kalimantan
+12,55,6,10.91%,64,Kalimantan Timur,Kalimantan
+13,55,7,12.73%,63,Kalimantan Selatan,Kalimantan
+14,45,10,22.22%,62,Kalimantan Tengah,Kalimantan
+15,65,7,10.77%,61,Kalimantan Barat,Kalimantan
+16,65,6,9.23%,53,Nusa Tenggara Timur,Maluku & NTT
+17,65,5,7.69%,52,Nusa Tenggara Barat,Maluku & NTT
+18,55,5,9.09%,51,Bali,Bali
+19,85,16,18.82%,36,Banten,Jawa
+20,100,13,13.00%,35,Jawa Timur,Jawa
+21,55,6,10.91%,34,Daerah Isimewa Yogyakarta,Jawa
+22,100,23,23.00%,33,Jawa Tengah,Jawa
+23,100,22,22.00%,32,Jawa Barat,Jawa
+24,106,19,17.92%,31,Daerah Khusus Ibukota Jakarta,Jawa
+25,45,6,13.33%,21,Kepulauan Riau,Sumatera
+26,45,5,11.11%,19,Kepulauan Bangka Belitung,Sumatera
+27,85,14,16.47%,18,Lampung,Sumatera
+28,45,8,17.78%,17,Bengkulu,Sumatera
+29,75,13,17.33%,16,Sumatera Selatan,Sumatera
+30,55,7,12.73%,15,Jambi,Sumatera
+31,65,18,27.69%,14,Riau,Sumatera
+32,65,6,9.23%,13,Sumatera Barat,Sumatera
+33,100,13,13.00%,12,Sumatera Utara,Sumatera
+34,81,12,14.81%,11,Aceh,Sumatera

@@ -283,8 +283,109 @@ Buat program percabangan dengan kondisi
 
 # 5. Perulangan
 
+Perulangan atau yang sering disebut dengan “looping”, merupakan proses yang dilakukan secara berulang-ulang dalam batas yang telah ditentukan.
+
+Contoh jika kita ingin membuat tabel perkalian 9.
+
+Cara manual
+```{r loop1}
+print(paste('9*1 =', 9*1))
+print(paste('9*2 =', 9*2))
+print(paste('9*3 =', 9*3))
+print(paste('9*4 =', 9*4))
+print(paste('9*5 =', 9*5))
+print(paste('9*6 =', 9*6))
+print(paste('9*7 =', 9*7))
+print(paste('9*8 =', 9*8))
+print(paste('9*9 =', 9*9))
+print(paste('9*10 =', 9*10))
+```
+Cara looping
+
+```{r loop2}
+numbers <- c(1:10)
+
+for(i in numbers){
+    print(paste0('9*', i, ' = ', 9*i))
+}
+
+```
+Contoh lain
+
+```{r loop3}
+numbers = c(1:10)
+perkalian = c()
+perkalian
+```
+
+Mengisi variabel perkalian
+```{r loop4}
+for(i in numbers){
+    perkalian[i] = 9*i
+}
+perkalian
+```
+## Perulangan dengan break
+
+Proses looping akan berhenti jika i sama dengan 5
+
+```{r loop5}
+numbers = c(1:10)
+perkalian = c()
+for(i in numbers){
+  perkalian[i] = 9*i
+  if(i == 5){
+    break
+  }
+}
+perkalian
+```
+## Perulangan dengan
+
+Proses looping akan di next, di lewati pada kondisi i sama dengan 5
+
+```{r loop6}
+numbers = c(1:10)
+perkalian = c()
+for(i in numbers){
+  if(i == 5){
+    next
+  }
+  perkalian[i] = 9*i
+}
+perkalian
+```
+### Membuat program angka ganjil-genap
+
+```{r loop7}
+numbers <- c(1:10)
+for(i in numbers){
+    if(i %% 2 == 0){
+        print(paste(i, 'adalah bilangan genap'))
+    } else{
+        print(paste(i, 'adalah bilangan ganjil'))
+    }
+}
+```
 
 # 6. Fungsi
 
+Fungsi bahasa pemrograman yaitu memerintah komputer untuk mengolah data sesuai dengan alur berpikir yang kita inginkan.
+
+![Konsep Variabel](img/1-4-fungsi.png){width=40%}
+
+### Penulisan fungsi
+
+#### cari 1
+```
+seper_x <- function(x) 1/x
+```
+
+### cara 2
+```
+seper_x <- function(x){
+    1/x
+}
+```
 
 # 7.Packages
