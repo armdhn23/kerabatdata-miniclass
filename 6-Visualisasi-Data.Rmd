@@ -9,6 +9,13 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Library
+
+Library yang digunakan pada materi ini adalah tidyverse. Library sudah mencakup packages untuk membaca data, manipulasi visualisasi data, dan lain-lain
+
+```{r load lib}
+library(tidyverse)
+```
 # Visualisasi Data
 
 Singkatnya, visualisasi data dipakai untuk mempresentasikan data yang terstruktur ataupun tidak dengan grafik. Tujuan utama dari visualisasi data adalah untuk mengkomunikasikan informasi secara jelas dan efisien kepada pengguna lewat grafik informasi.
@@ -263,6 +270,7 @@ ggplot(iris, aes(x = Sepal.Length, fill = Species)) +
   theme_dark() #mengganti tema
 
 ```
+
 ## Density Plot
 
 Membuat density plot persis membuat histogram, cukup ganti geom_historam menjadi menjadi geom_density
@@ -315,9 +323,209 @@ Gunakan geom_bar untuk membuat barplot. Misal kita punya data sebagai berikut:
 ```{r data bar}
 survey <- data.frame(group=rep(c("Men", "Women"),each=6),
                      fruit=rep(c("Apple", "Kiwi", "Grapes", "Banana", "Pears", "Orange"),2),
-                     people=c(22, 10, 15, 23, 12, 18, 18, 5, 15, 27, 8, 17))
+                     people=c(22, 10, 15, 23, 12, 18, 18, 5, 15, 10, 8, 17))
 survey
 ```
+
+Barplot jumlah people berdasarkan group. Ubah bentuk datanya terlebih dahulu
+
+```{r data group}
+data_fruit <- survey %>%
+  group_by(fruit) %>%
+  summarise(total =sum(people)) 
+data_fruit
+```
+```{r bar1, fig.height=3}
+ggplot(data_fruit, aes(fruit, total)) +
+  geom_bar(stat = "identity")
+```
+
+```{r bar2, fig.height=3}
+ggplot(data_fruit, aes(fruit, total, fill = fruit)) +
+  geom_bar(stat = "identity") +
+  labs(title="Bar Plot") + xlab("Fruit") + ylab("Total") + 
+  theme_classic()
+```
+Menambah label,
+
+```{r bar3}
+ggplot(data_fruit, aes(fruit, total, fill = fruit)) +
+  geom_bar(stat = "identity") +
+  labs(title="Bar Plot") + xlab("Fruit") + ylab("Total") + 
+  theme_classic() + 
+  geom_text(aes(x = fruit, y = total + 2, label = total))
+```
+Kita bisa mengelompokkan jumlah fruit berdasakran group (Bar Stack)
+
+```{r bar4, fig.height=3}
+ggplot(survey, aes(fruit, people, fill = group)) +
+  geom_bar(stat = "identity") +
+  labs(title="Bar Plot") + xlab("Fruit") + ylab("Total") + 
+  theme_classic() +
+  geom_text(aes(x = fruit, y = people, label = people),
+            position = position_stack(0.5))
+```
+Kita juga bisa mengatur posisi bar 'dodge'.
+
+```{r bar5, fig.height=3}
+ggplot(survey, aes(fruit, people, fill = group)) +
+  geom_bar(stat = "identity", position = 'dodge') +
+  labs(title="Bar Plot") + xlab("Fruit") + ylab("Total") + 
+  theme_classic() +
+  geom_text(aes(x = fruit, y = people + 2, label = people),
+            position = position_dodge(0.9))
+```
+Horizontal bar plot dapat dibuat dengan menambahkan fungsi coord_flip()
+
+```{r bar6, fig.height=3}
+ggplot(data_fruit, aes(fruit, total, fill = fruit)) +
+  geom_bar(stat = "identity") +
+  labs(title="Bar Plot") + xlab("Fruit") + ylab("Total") + 
+  theme_classic() + 
+  geom_text(aes(x = fruit, y = total + 2, label = total)) +
+  coord_flip()
+```
+Mengatur urutan terkecil ke terbesar
+
+```{r bar7, fig.height=3}
+ggplot(data_fruit, aes(fct_reorder(fruit, desc(total)), total, fill = fruit)) +
+  geom_bar(stat = "identity") +
+  labs(title="Bar Plot") + xlab("Fruit") + ylab("Total") + 
+  theme_classic() + 
+  geom_text(aes(x = fruit, y = total + 2, label = total)) +
+  coord_flip()
+```
+
+Mengatur urutan terbesar ke terkecil
+
+```{r bar8, fig.height=3}
+ggplot(data_fruit, aes(fct_reorder(fruit, total), total, fill = fruit)) +
+  geom_bar(stat = "identity") +
+  labs(title="Bar Plot") + xlab("Fruit") + ylab("Total") + 
+  theme_classic() + 
+  geom_text(aes(x = fruit, y = total + 2, label = total)) +
+  coord_flip()
+```
+## Pie Chart
+
+Membuat pie chart juga menggunakan fungsi geom_barm namun menambahkan fungsi coord_polar("y", start=0)
+
+```{r fruit2}
+data_fruit
+```
+```{r pie1, fig.height=2.5}
+ggplot(data_fruit, aes(x="", y=total, fill=fruit)) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0)
+```
+Menghapus background, text numeric dan grid serta mengganti warna
+
+```{r pie2, fig.height=2.5}
+ggplot(data_fruit, aes(x="", y=total, fill=fruit)) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) +
+  scale_fill_brewer(palette="Dark2") + #mengganti warna
+  theme_void() # remove background, grid, numeric labels
+```
+Memberi label dalam persen. Buat variabel persen yang merupakan nilai persentase dari masing-masing fruit.
+
+```{r new fruit}
+data_fruit_new <- data_fruit %>%
+  mutate(persen = round(total/sum(total),4)*100)
+data_fruit_new
+```
+Menambah label dan judul
+
+```{r pie4, fig.height=3}
+ggplot(data_fruit_new, aes(x="", y=persen, fill=fruit)) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) +
+  theme_void() + # remove background, grid, numeric labels
+  geom_text(aes(y = persen, 
+                label = paste0(persen, '%')),
+            position = position_stack(vjust = 0.5), size = 3) +
+  labs(title = 'Pie Chart Persentage Fruit')
+```
+## Scatterplot
+
+Untuk membuat scatterplot, gunakan fungsi geom_point. Kita akan kembali menggunakan data iris
+
+```{r head iris}
+head(iris)
+```
+
+```{r sp1, fig.height=3}
+ggplot(iris, aes(Petal.Length, Petal.Width, pch=Species)) +
+  geom_point()
+```
+
+
+Bentuk dan warna point dapat kita atur dengan menambah argument di fungsi geom_point
+
+```{r sp2, fig.height=3}
+ggplot(iris, aes(Petal.Length, Petal.Width)) +
+  geom_point(
+        color="orange",
+        fill="#69b3a2",
+        shape=21,
+        size=3,
+        )
+```
+Bentuk dan warnaa point dapat diatur sesuai berdasarkan species
+
+```{r sp3, fig.height=3}
+ggplot(iris, aes(Petal.Length, Petal.Width, color = Species, shape = Species)) +
+  geom_point(size = 2) +
+  theme_classic()
+```
+##Line chart
+
+Data
+
+```{r line}
+df2 <- data.frame(year=c(2015:2020),
+                  merk=rep(c("VC", "OJ"),each=6),
+                total=c(68, 150, 330, 42, 100, 295,
+                      44, 79, 80, 100, 175, 367))
+df2
+```
+Membuat linechart, gunakan geom_point
+
+```{r line1}
+ggplot(df2, aes(year, total, group = merk))+
+  geom_line()
+```
+
+Tambahkan geom_point dan warna berdasarkan merk
+
+```{r line2, fig.height=3}
+ggplot(df2, aes(year, total, group = merk, color = merk))+
+  geom_line() + 
+  geom_point()
+```
+Jenis garis berdasarkan merk
+
+```{r line3, fig.height=3}
+ggplot(df2, aes(year, total, group = merk, color = merk))+
+  geom_line(aes(linetype = merk)) + 
+  geom_point() +
+  scale_color_manual(values=c("red", "blue")) +
+  theme_classic() +
+  labs(title = "Line Plot Total Sales by Year")
+```
+# Referensi
+
+Masih banyak variasi visualisasi data yang bisa digunakan, silahkan cek disini
+
+https://www.r-graph-gallery.com/
+
+
+
+
+
+
+
+
 
 
 

@@ -372,7 +372,7 @@ for(i in numbers){
 
 Fungsi bahasa pemrograman yaitu memerintah komputer untuk mengolah data sesuai dengan alur berpikir yang kita inginkan.
 
-![Konsep Variabel](img/1-4-fungsi.png){width=40%}
+![Konsep Fungsi](img/1-4-fungsi.png){width=40%}
 
 ### Penulisan fungsi
 
@@ -423,10 +423,10 @@ Untuk menggunakan packages kita perli menginstallnya terlebih dahulu
 install.packages('nama_packages')
 ```
 
-Contoh menginstall packages ggplo2
+Contoh menginstall packages ggplot2
 
 ```
-install.packages('ggplo2')
+install.packages('ggplot2')
 ```
 
 Untuk load packages agar bisa digunakan tuliskan kode berikut
