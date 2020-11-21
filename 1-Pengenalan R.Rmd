@@ -387,5 +387,30 @@ seper_x <- function(x){
     1/x
 }
 ```
+### Fungsi tanpa parameter
 
+```{r fungsi1}
+hay <- function(){
+  print('hello')
+}
+```
+
+### Fungsi dengan parameter
+
+```{r fungsi 2}
+luas_segitiga <- function(alas, tinggi){
+  1/2 * alas * tinggi
+}
+
+luas_segitiga(5, 9)
+```
+
+### Funsgi dengan parameter yang di inisialisasi
+
+```{r fungsi 3}
+luas_segitiga <- function(alas = 2, tinggi = 4){
+  1/2 * alas * tinggi
+}
+luas_segitiga()
+```
 # 7.Packages
