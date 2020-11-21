@@ -414,3 +414,30 @@ luas_segitiga <- function(alas = 2, tinggi = 4){
 luas_segitiga()
 ```
 # 7.Packages
+
+Packages pada dasarnya adalah fungsi yang sudah di program oleh orang lain dan kita gunakan.
+
+Untuk menggunakan packages kita perli menginstallnya terlebih dahulu
+
+```
+install.packages('nama_packages')
+```
+
+Contoh menginstall packages ggplo2
+
+```
+install.packages('ggplo2')
+```
+
+Untuk load packages agar bisa digunakan tuliskan kode berikut
+
+```{r load}
+library(ggplot2)
+```
+
+Maka packages siap digunakan
+
+```{r ggplo2, fig.height=3}
+ggplot(iris, aes(Sepal.Length, fill = Species)) +
+  geom_density()
+```
