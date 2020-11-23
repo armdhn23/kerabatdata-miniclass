@@ -15,7 +15,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Contoh
 
-Data = air jatuh dari langit Informasi = Jakarta hujan Knowledge = Jika jakarta hujan, maka akan macet dan banjir Wisdom = Jangan keluar rumah jika tidak mendesak
+Data = air jatuh dari langit
+
+Informasi = Jakarta hujan
+
+Knowledge = Jika jakarta hujan, maka akan macet dan banjir
+
+Wisdom = Jangan keluar rumah jika tidak mendesak
 
 Pada bahasa R, data adalah objek yang memiliki suatu atribut dan berbagai fungsionalitas. Sifat data ditentukan oleh type data dan mode data. Ada berbagai type data yang dikenal oleh R,antara lain vektor, matriks, list, data frame, array, dan factor. Pada kesempatan kali ini akan di bahas beberapa type data
 
@@ -120,7 +126,7 @@ Kita bisa melaukukan perhitungan atau operasi aritmatika pada vektor dengan skal
 ```{r vektor hitung}
 vektor_6 <- c(0,8,4,6)
 vektor_6
-vektor_6 + 4
+vektor_6 * 4
 ```
 
 Untuk operasi aritmatika pada vektor dengan vektor, pastikan vektor-vektor yang digunakan memiliki panjang yang sama. Nilai pada vektor akan di operasikan berdasarkan kesamaan indeks.
@@ -222,6 +228,7 @@ matriks_4[,2]
 # memilih nilai baris ke 1 semua kolom
 matriks_4[1,]
 ```
+
 ## Perhitungan pada matriks
 
 ```{r matriks hitung}
@@ -242,11 +249,13 @@ matriks_6 <- matrix(
 matriks_6
 
 ```
+
 Matriks dengan vektor
 
 ```{r matriks vektor}
 matriks_5 + vektor_9
 ```
+
 Terlihat semua nilai pada baris 1 matriks_5 di jumlahkan dengan nilai ke 1 vektor_9
 
 ```{r matriks matriks}
@@ -254,12 +263,14 @@ matriks_5 + matriks_6
 
 matriks_5 * matriks_6
 ```
-Jika dilakukan perkalian secara langsung pada kedua matriks tersebut, R hanya akan mengalikan  matriks yang berada pada index yang sama. Perkalian matriks yang sebenarnya menggunakan %*%.
+
+Jika dilakukan perkalian secara langsung pada kedua matriks tersebut, R hanya akan mengalikan matriks yang berada pada index yang sama. Perkalian matriks yang sebenarnya menggunakan %\*%.
 
 ```{r matriks*matriks}
 
 matriks_5 %*% matriks_6
 ```
+
 Beberapa perhitungan lainnya
 
 ```{r hitung lain}
@@ -271,6 +282,7 @@ colSums(matriks_6)
 # Rata-rata tiap baris
 rowMeans(matriks_6)
 ```
+
 Sama halnya dengan vektor, matriks hanya bisa berisi satu jenis tipe data.
 
 ```{r matriks tipe}
@@ -281,8 +293,8 @@ matriks7 <- matrix(
 )
 matriks7
 ```
-Semua angka akan dikonversi menjadi karakter.
 
+Semua angka akan dikonversi menjadi karakter.
 
 ### Latihan
 
@@ -304,19 +316,18 @@ biodata <- data.frame(nama, tahun_lahir)
 biodata
 class(biodata)
 ```
+
 ## Ekspor dan Impor Data
 
-Sebelum masuk bahasan eksport dan import data, perlu mengetahui konsep working directory. Setiap pengguna akan bekerja pada tempat khusus yang disebut sebagai working directory. Working directory merupakan sebuah folder dimana R akan membaca dan menyimpan file kerja kita. Pada pengguna windows, working directory secara default pada saat pertama kali menginstall R terletak pada folder ```c:\\Document```
+Sebelum masuk bahasan eksport dan import data, perlu mengetahui konsep working directory. Setiap pengguna akan bekerja pada tempat khusus yang disebut sebagai working directory. Working directory merupakan sebuah folder dimana R akan membaca dan menyimpan file kerja kita. Pada pengguna windows, working directory secara default pada saat pertama kali menginstall R terletak pada folder `c:\\Documents`
 
 Untuk mendapatkan working directory ketikkan kode berikut
-```
-getwd()
-```
-Untuk mengganti working directory ketikkan kode berikut. Contoh ingin mengganti working directory ke folder ~/Documents/R".
 
-```
-setwd("/Documents/R")
-```
+    getwd()
+
+Untuk mengganti working directory ketikkan kode berikut. Contoh ingin mengganti working directory ke folder \~/Documents/R".
+
+    setwd("/Documents/R")
 
 ### Ekspor Data
 
@@ -325,7 +336,8 @@ Ekspor data adalah menyimpan data yang ada di R ke penyimpana lain, misal laptop
 ```{r biodata}
 biodata
 ```
-Kita dapat mengekspor ke dalam beberapa format, sebagai contoh dataframe biodata akan disimpan dalam format csv dengan nama biodata.csv 
+
+Kita dapat mengekspor ke dalam beberapa format, sebagai contoh dataframe biodata akan disimpan dalam format csv dengan nama biodata.csv
 
 ```{r biodata csv}
 write.csv(biodata, "data/biodata.csv")
@@ -335,12 +347,9 @@ Maka file biodata.csv akan tersimpan di working directory pada folder data
 
 ### Import data
 
-Import data adalah memuat data dari penyimpanan lain, misal laptop/komputer ke penyimpanan R.
-Sebagai contoh mengimpor file csv ke R
+Import data adalah memuat data dari penyimpanan lain, misal laptop/komputer ke penyimpanan R. Sebagai contoh mengimpor file csv ke R
 
-```
-nama_dataframe <- read.csv('path/nama_file.csv) 
-```
+    nama_dataframe <- read.csv('path/nama_file.csv) 
 
 ```{r load csv}
 biodata <- read.csv('data/biodata.csv')
@@ -349,20 +358,20 @@ biodata
 
 ### Slicing Dataframe
 
-Sama seperti matriks, slicing dataframe menggunakan dataframe[baris, kolom]. Namun ada tambahan tanda $ untuk mengambil kolom dan bisa dengan menulis nama kolom juga.
+Sama seperti matriks, slicing dataframe menggunakan dataframe[baris, kolom]. Namun ada tambahan tanda \$ untuk mengambil kolom dan bisa dengan menulis nama kolom juga.
 
 ```{r slicing df}
 #mengambil baris 1 - 3 kolom 2
 biodata[1:3, 2]
 ```
+
 ```{r operator $}
 #mengambil variabel nama
 biodata$nama
 ```
+
 ```{r tulus nama kolom}
 #mengambil baris 1,3, 4, 6, 8 dan kolom nama dan tahun
 biodata[c(1,3, 4, 6, 8), c('nama', 'tahun_lahir')]
 
 ```
-
-
