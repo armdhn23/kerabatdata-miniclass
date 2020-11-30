@@ -64,7 +64,9 @@ str(data_latihan)
 
 Dari output di atas dapat diperoleh beberapa informasi, seperti type object data_latihan yaitu data.frame, berisi 9 observasi dan 7 variabel, yaitu merk, nama_barang, harga dan seterusnya.
 
-### Memilih variabel data dengan select
+## Select
+
+Digunakan untuk menyeleksi kolom data
 
 ```{r select}
 data_2016 <- data_latihan %>%
@@ -72,9 +74,12 @@ data_2016 <- data_latihan %>%
 data_2016
 ```
 
-## Latihan
+### Latihan
 
 Coba pilih variabel data nama_barang, penjualan 2018 hingga 2019
+
+## Filter
+Menyaring baris data berdasarkan kondisi tertentu
 
 ### Filter harga barang \> 2jt
 
@@ -84,14 +89,14 @@ filter_2jt <- data_latihan %>%
 filter_2jt
 ```
 
-## Latihan
+### Latihan
 
 Filter data dengan harga diatas 2jt dibawah 3jt
 
 ```{r}
 ```
 
-## Jawaban
+### Jawaban
 
 ```{r jawaban filter}
 filter_2jt <- data_latihan %>%
@@ -107,7 +112,9 @@ data_latihan %>%
     filter(merk == 'Vivo')
 ```
 
-## group_by dan summarise sering digunakan bersamaan
+## Group_by dan Summarise
+
+Kedua fungsi ini sering digunakan bersamaan, group digunakan untuk mengelompokkan data dan summarise digunakan untuk agregasi data
 
 Contoh hitung rata-rata harga handphone berdasarkan merk
 
@@ -149,7 +156,9 @@ arrange_data_max <- data_latihan %>%
 arrange_data_max
 ```
 
-## Mutate, untuk membuat kolom baru
+## Mutate
+
+Utuk membuat kolom baru berdasarkan operasi yang dilakukan pada kolom data yang lain.
 
 Contoh hitung buat kolom pendapatan 2016, dengan mengalikan harga dan penjual_2016
 
@@ -159,13 +168,13 @@ mutate_data <- data_latihan %>%
 mutate_data
 ```
 
-# Referensi
+## Referensi
 
     https://muhammadilhammubarok.wordpress.com/2018/05/01/manipulasi-data-dengan-librarydplyr-di-r/ 
 
     https://rpubs.com/arumprimandari/368022
 
-# Data Tidying
+## Data Tidying
 
 <https://garrettgman.github.io/tidying/>
 
@@ -211,7 +220,7 @@ colnames(tidying_data) <- c('merk', 'nama_barang', 'harga', '2016', '2017',
 head(tidying_data)
 ```
 
-## Gather
+### Gather
 
 ```{r gather}
 library(tidyr)
@@ -226,7 +235,7 @@ tail(gather_data)
 
 Variabel 2016-2019 digabung menjadi satu di variabel tahun dan nilai-nilainya di simpan di variabel penjualan
 
-## Spread
+### Spread
 
 Kebalikan dari gather
 
@@ -238,7 +247,7 @@ tail(spread_data)
 
 Data kembali ke bentuk semula
 
-## Penerapan
+### Penerapan
 
 Contoh penggunaan kita ingin membuat plot line berbandingan penjualan dari tahun 2016-2019 sesuai data di atas, agar fungsi ggplot dapat membuat plot tersebut, data spread di atas harus di susun (manipulasi) bentuknya agar sesuai dengan yang di inginkan fungsi ggpplot
 
@@ -251,7 +260,7 @@ ggplot(line_data, aes(x = tahun, y= total, group = merk)) + geom_line(aes(color=
   geom_point(aes(x = tahun, y= total))
 ```
 
-## Unite
+### Unite
 
 Menggabung beberapa kolom menjadi satu kolom
 
@@ -265,7 +274,7 @@ head(unite_data)
 
 Dari output di atas terlihat kolom merk dan nama digabung menjadi variabel merk_nama
 
-## Separate
+### Separate
 
 ```{r}
 separate_data <- unite_data %>%
