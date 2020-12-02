@@ -98,6 +98,9 @@ leaflet(data_peta) %>%
 
 ```
 
+### Referensi
 
+http://rstudio.github.io/leaflet/choropleths.html
+https://kerabatdata.com/seri_peta4-membuat-pemetaan-daerah-gempa-dengan-leaflet/
 
 
