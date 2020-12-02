@@ -69,7 +69,7 @@ Dari output di atas dapat diperoleh beberapa informasi, seperti type object data
 Digunakan untuk menyeleksi kolom data
 
 ```{r select}
-data_2016 <- data_latihan %>%
+data_2016 <- data_latihan %>% #pipe
     select(nama_barang, penjualan_2016)
 data_2016
 ```

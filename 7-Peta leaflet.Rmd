@@ -1,0 +1,103 @@
+---
+title: "Peta"
+output:
+  word_document: default
+  pdf_document: default
+always_allow_html: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Peta
+
+Salah packages yang digunakan untuk membuat peta interaktif adalah leaflet.
+
+```
+Leaflet is one of the most popular open-source JavaScript libraries for interactive maps. It’s used by websites ranging from The New York Times and The Washington Post to GitHub and Flickr, as well as GIS specialists like OpenStreetMap, Mapbox, and CartoDB.
+
+This R package makes it easy to integrate and control Leaflet maps in R.
+```
+
+## Instalasi
+
+```
+install.packagess('leaflet')
+```
+```{r load}
+library(leaflet)
+library(dplyr)
+```
+## Default Peta Open Street Map
+
+```{r peta1}
+m <- leaflet() %>%
+  addTiles() #Add default OpenStreetMap map tiles
+m 
+```
+
+## Marker
+
+Untuk membuat marker, gunakan fungsi addMarkers()
+
+```{r peta2}
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=119.891505, lat=-0.8364322, popup="Universitas Tadulako")
+m 
+```
+
+lng adalah titik longitude dan lat adalah titik latitude
+
+## Markers, Label dan Legend
+
+Kita akan menggunakan data hasil Pemilihan Presiden Tahun 2014 
+
+### Import data
+
+```{r import data}
+data_peta <- read.csv('data/jokowi_prabowo.csv')
+
+# menyeleksi kolom data
+data_peta <- data_peta %>%
+  select(NAME_1 ,PEMENANG, latitude, longitude)
+head(data_peta)  
+```
+
+### Membuat label
+
+```{r peta3}
+labels <- sprintf("Provinsi: %s <br/> Pemenang: %s",
+                  data_peta$NAME_1, data_peta$PEMENANG
+) %>% 
+  lapply(htmltools::HTML)
+
+new <- c("blue" ,"red","orange")[data_peta$PEMENANG]
+
+icons <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = new)
+
+pal <- colorFactor(c("blue", "red","orange"), domain = data_peta$PEMENANG)
+```
+
+### Peta
+
+```{r peta4}
+leaflet(data_peta) %>%
+  addTiles() %>%
+  addAwesomeMarkers (lng = ~longitude,
+                     lat = ~latitude,
+                     label = labels,icon = icons) %>%
+  addLegend("bottomright", pal = pal, values = ~data_peta$PEMENANG,
+            title = "Pemilihan Presiden 2014",
+            opacity = 1)
+
+```
+
+
+
+
