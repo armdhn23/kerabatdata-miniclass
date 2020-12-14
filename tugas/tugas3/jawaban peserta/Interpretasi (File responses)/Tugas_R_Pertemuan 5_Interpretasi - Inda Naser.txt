@@ -1,0 +1,5 @@
+Interpretasi 
+# dapat diketahui dari ggplot tersebut, bahwasanya produksi perlakuan ikan
+  nasional yang memiliki volume yang besar berada di wilayah maluku (23605) dan yang
+  volume produksi perlakuan paling minim berada diwilayah bali-nusa tenggara (10574) dengan selisi (13031).
+# sumatera (16325) dan sulawesi(16792) memiliki rata-rata volume yang hampir sama dengan selisih (467)

@@ -23,18 +23,19 @@ This R package makes it easy to integrate and control Leaflet maps in R.
 ## Instalasi
 
 ```
-install.packagess('leaflet')
+install.packages('leaflet')
 ```
 ```{r load}
 library(leaflet)
 library(dplyr)
 ```
+
 ## Default Peta Open Street Map
 
 ```{r peta1}
 m <- leaflet() %>%
   addTiles() #Add default OpenStreetMap map tiles
-m 
+m
 ```
 
 ## Marker
@@ -44,8 +45,8 @@ Untuk membuat marker, gunakan fungsi addMarkers()
 ```{r peta2}
 m <- leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
-  addMarkers(lng=119.891505, lat=-0.8364322, popup="Universitas Tadulako")
-m 
+  addMarkers(lng=119.8923848, lat=-0.8362069, popup="FMIPA UNTAD")
+m
 ```
 
 lng adalah titik longitude dan lat adalah titik latitude
@@ -73,7 +74,7 @@ labels <- sprintf("Provinsi: %s <br/> Pemenang: %s",
 ) %>% 
   lapply(htmltools::HTML)
 
-new <- c("blue" ,"red","orange")[data_peta$PEMENANG]
+new <- c("blue" ,"red","orange")[factor(data_peta$PEMENANG)]
 
 icons <- awesomeIcons(
   icon = 'ios-close',

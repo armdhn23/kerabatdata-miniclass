@@ -1,0 +1,27 @@
+T_6 <- read.csv('produksiperlakuanikannasional.csv', stringsAsFactors = T, sep = ";" )
+View(T_6)
+head(data)
+tail(data)
+
+
+library(dplyr)
+Nama_Provinsi <- T_6 %>%
+  select(NamaProvinsi)
+Nama_Provinsi
+
+
+Filter_Volume <- T_6 %>% 
+  filter(Volume > 50000)
+Filter_Volume
+
+# agregrasi
+library(dplyr)
+group_data <- T_6 %>%
+  group_by(Wilayah)%>%
+  summarise(rata_rata_volume = mean(Volume))
+group_data
+
+# Visualisasi data
+library(ggplot2)
+ggplot(group_data, aes(Wilayah, rata_rata_volume, fill=Wilayah)) +
+  geom_bar(stat = 'identity')
