@@ -1,0 +1,13 @@
+name: pilkada-2020
+title: pilkada-2020
+username:
+account: asharir
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3407160
+bundleId: 3995847
+url: https://asharir.shinyapps.io/pilkada-2020/
+when: 1608110343.32292
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|app1.R|fig.R|peta.R|selectInput.R

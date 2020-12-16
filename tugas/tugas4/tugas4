@@ -1,0 +1,9 @@
+Buat WebApp menggunakan packages shinydashboard dengan ketentuan berikut:
+
+0. Data yang digunakan bebas
+1. Memiliki minimal 2 sidebar menu, yang terdiri dari visualisasi data (peta dan grafik) dan tabel data
+2. Mengimplementasikan input (selectInput, radioButton, etc)
+3. Mengimplementasikan if else dan function
+4. Mengimplementasikan minimal satu fungsi manipulasi data (filter, summarise, etc)
+5. Deploy WebApp ke shinyapps.io
+
